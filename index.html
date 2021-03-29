@@ -31,12 +31,17 @@
            let minutes = date.getMinutes();
            let seconds = date.getSeconds();
            
-           
+           if(hours===12){
+               timeFormat = "PM!";
+               document.getElementById("afternoon").style.display = "block";
+           }
+
            if(hours===0){
+               document.getElementById("night").style.display = "block";
                hours = 12;
                timeFormat = "AM!"
-               document.getElementById("night").style.display = "block";
             }
+
             if(hours > 0){
                 if(hours < 5){
                     document.getElementById("night").style.display = "block";
@@ -45,12 +50,7 @@
                     document.getElementById("morning").style.display = "block";
                 }
             }
-            if(hours===12){
-               timeFormat = "PM!";
-               document.getElementById("afternoon").style.display = "block";
-           }
-
-
+            
            if(hours > 12){
                if(hours < 18){
                document.getElementById("afternoon").style.display = "block";

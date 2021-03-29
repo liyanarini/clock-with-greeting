@@ -52,14 +52,14 @@
 
 
            if(hours > 12){
-               hours = hours-12;
-               timeFormat = "PM!";
                if(hours < 18){
                document.getElementById("afternoon").style.display = "block";
                }
                else{
-               document.getElementById("night").style.display = "block";
+               document.getElementById("evening").style.display = "block";
                }
+               hours = hours-12;
+               timeFormat = "PM!";
            }
            
 

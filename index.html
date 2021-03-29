@@ -31,32 +31,37 @@
            let minutes = date.getMinutes();
            let seconds = date.getSeconds();
            
-           if(hours===12){
-               timeFormat = "PM!";
-               document.getElementById("afternoon").style.display = "block";
-           }
+           
            if(hours===0){
                hours = 12;
                timeFormat = "AM!"
                document.getElementById("night").style.display = "block";
-
+            }
+            if(hours > 0){
+                if(hours < 5){
+                    document.getElementById("night").style.display = "block";
+                }
+                if(hours > 4 && hours <12){
+                    document.getElementById("morning").style.display = "block";
+                }
+            }
+            if(hours===12){
+               timeFormat = "PM!";
+               document.getElementById("afternoon").style.display = "block";
            }
+
+
            if(hours > 12){
                hours = hours-12;
                timeFormat = "PM!";
-           }
-           if(4<hours<12 && timeFormat==="AM"){
-               document.getElementById("morning").style.display = "block";
-           }
-           if(0<hours<6 && timeFormat==="PM"){
+               if(hours < 18){
                document.getElementById("afternoon").style.display = "block";
-           }
-           if(5<hours<12 && timeFormat==="PM"){
-               document.getElementById("evening").style.display = "block";
-           }
-           if(0<hours<5 && timeFormat==="AM"){
+               }
+               else{
                document.getElementById("night").style.display = "block";
+               }
            }
+           
 
            hours = hours < 10? "0" + hours : hours;
            minutes = minutes < 10? "0" + minutes : minutes;
